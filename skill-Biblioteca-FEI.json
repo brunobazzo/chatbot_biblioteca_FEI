@@ -1,0 +1,750 @@
+{
+  "intents": [
+    {
+      "intent": "ajuda",
+      "examples": [
+        {
+          "text": "boa noite"
+        },
+        {
+          "text": "bom dia"
+        },
+        {
+          "text": "consegue me ajudar"
+        },
+        {
+          "text": "oi"
+        },
+        {
+          "text": "ola"
+        },
+        {
+          "text": "ola chatbot"
+        },
+        {
+          "text": "ola tudo bem"
+        },
+        {
+          "text": "preciso de ajuda"
+        },
+        {
+          "text": "preciso de ajuda sobre algum tema especifico"
+        },
+        {
+          "text": "sim"
+        },
+        {
+          "text": "vc poderia me ajudar"
+        },
+        {
+          "text": "voce poderia me ajudar"
+        }
+      ],
+      "description": "solicita ajuda para algum tema"
+    },
+    {
+      "intent": "fim",
+      "examples": [
+        {
+          "text": "finalizar"
+        },
+        {
+          "text": "não preciso"
+        },
+        {
+          "text": "obrigado"
+        },
+        {
+          "text": "quero sair"
+        },
+        {
+          "text": "tchau"
+        }
+      ],
+      "description": "finalizar chatbot"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "elaboracao",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Citação",
+          "synonyms": [
+            "citacao"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Estrutura",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Referências",
+          "synonyms": [
+            "referencia"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "plagio",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Farejador de Plágio",
+          "synonyms": [
+            "Farejador"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Plagiarisma",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Plagium",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Saiba mais sobre o plágio",
+          "synonyms": [
+            "mais sobre o tema",
+            "mais sobre plagio",
+            "saber mais sobre plagio"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tema",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Bitly",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Classe LaTeX da FEI",
+          "synonyms": [
+            "Latex",
+            "LaTeX da FEI"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Combate ao Plágio",
+          "synonyms": [
+            "Plágio"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Ficha Catalográfica",
+          "synonyms": [
+            "Catalográfica"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Guia da nova reforma ortográfica",
+          "synonyms": [
+            "ortográfica",
+            "reforma ortográfica"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Guia para elaboração de trabalhos acadêmicos da FEI",
+          "synonyms": [
+            "elaboracao de trabalho",
+            "elaboração de trabalhos",
+            "elaboração de trabalhos acadêmicos da FEI"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Mecanismo Online para Referências",
+          "synonyms": [
+            "Mecanismo Online para Referências",
+            "Mecanismo para Referências",
+            "MORE"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Mendeley",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Orientação para normalização de trabalhos acadêmicos",
+          "synonyms": [
+            "normalização de trabalhos",
+            "normalização de trabalhos acadêmicos",
+            "orientacao para normalizacao"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Procedimento para entrega de Trabalhos Acadêmicos",
+          "synonyms": [
+            "entrega de Trabalhos",
+            "Procedimento para entrega de Trabalhos"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "title": "Bem vindo ao ChatBot da Biblioteca do",
+            "source": "https://upload.wikimedia.org/wikipedia/commons/4/43/FEI_logo_2015.png",
+            "description": "",
+            "response_type": "image"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1614817736003",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1614817736008",
+      "previous_sibling": "handler_3_1614817736008"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1614817736003",
+      "context": {
+        "fim": "#fim"
+      },
+      "conditions": "#fim",
+      "event_name": "input",
+      "dialog_node": "handler_3_1614817736008"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O serviço de Orientação à Normalização de trabalhos Acadêmicos é oferecido a todos os alunos do Centro Universitário FEI com o objetivo de padronizar os trabalhos de acordo com as normas da ABNT."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Orientação para normalização de trabalhos acadêmicos)",
+      "dialog_node": "node_1_1614814433176",
+      "previous_sibling": "node_5_1614814431733"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Acesse o link para saber mais sobre o Plágio: https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/imagens/biblioteca/novembro/plagio.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_15_1614815327616",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@plagio:(Saiba mais sobre o plágio)",
+      "dialog_node": "node_1_1614818864141",
+      "previous_sibling": "node_2_1614818862877"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Saiba o que mudou na ortografia brasileira: https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/biblioteca/guia_reforma_ortografica_cp.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Guia da nova reforma ortográfica)",
+      "dialog_node": "node_12_1614815064915",
+      "previous_sibling": "node_13_1614815067049"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O guia substitui o Manual para apresentação formal de trabalhos acadêmicos. Elaborado de acordo com as normas vigentes da Associação Brasileira de Normas Técnicas (ABNT), traz um novo formato, além de novos exemplos com uma linguagem simples para facilitar a compreensão dos usuários.\nQuer saber mais sobre Citação, Estrutura ou Referências?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@tema:(Guia para elaboração de trabalhos acadêmicos da FEI)",
+      "dialog_node": "node_13_1614815067049",
+      "previous_sibling": "node_7_1614814434026"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A biblioteca da FEI disponibiliza para seus usuários o sistema para elaboração de fichas catalográficas que foi desenvolvido pelo ICMC/USP e gentilmente cedido para ser adaptado às necessidades de sua comunidade acadêmica.\n\nA partir de outubro de 2015 a ficha catalográfica passa a ser elaborada pelo próprio usuário e deve ser impressa no verso da página/folha de rosto.\n\nÉ um elemento obrigatório em trabalhos acadêmicos e sua elaboração é feita com as informações fundamentais para a identificação do documento, entre elas: autor e orientador, título, total de folhas, assunto, palavras-chave, etc. Para elaborar sua ficha acesse: http://sofia.fei.edu.br/ficha/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Ficha Catalográfica)",
+      "dialog_node": "node_14_1614815243417",
+      "previous_sibling": "node_12_1614815064915"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A biblioteca do Centro Universitário FEI, por recomendação da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES), divulga ao seu público um texto informativo, com intuito de coibir o plágio nas produções acadêmicas desenvolvidas na IES.\nQuer saber mais sobre plágio ou as ferramentes Farejador de Plágio, Plagium e Plagiarisma?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": " @tema:(Combate ao Plágio)",
+      "dialog_node": "node_15_1614815327616",
+      "previous_sibling": "node_14_1614815243417"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "bitly é um dos mais famosos gerenciadores e encurtadores de URL da internet. Confira: https://bitly.com/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@tema:Bitly",
+      "dialog_node": "node_16_1614815395156",
+      "previous_sibling": "node_15_1614815327616"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "MORE é uma ferramenta gratuita e fácil de usar, que produz automaticamente citações no texto e referências no formato ABNT. Acesse: http://www.more.ufsc.br/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Mecanismo Online para Referências)",
+      "dialog_node": "node_17_1614815451412",
+      "previous_sibling": "node_16_1614815395156"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Acesse o link para saber mais sobre o Plagiarisma: http://plagiarisma.net/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_15_1614815327616",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@plagio:Plagiarisma",
+      "dialog_node": "node_2_1614818862877",
+      "previous_sibling": "node_7_1614818859821"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Muito obrigado por conversar comigo. Volte sempre :)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#fim",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_3_1614819586977",
+      "previous_sibling": "node_17_1614815451412"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para saber sobre Citação acesse o link: https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/docs/vestibular/22020/citacao_rev-2020.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_13_1614815067049",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@elaboracao:Citação",
+      "dialog_node": "node_4_1614816101447"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A classe LaTeX da FEI é um arquivo de formatação de trabalhos acadêmicos para usuários de LaTeX, de acordo com as normas de formatação do Centro Universitário FEI. Para saber mais acesse: https://ctan.dcc.uchile.cl/macros/latex/contrib/fei/fei.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Classe LaTeX da FEI)",
+      "dialog_node": "node_5_1614813597449",
+      "previous_sibling": "node_5_1614816981337"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Os trabalhos acadêmicos devem ser entregues de acordo com os procedimentos da secretaria do curso. Cabe ao orientador, juntamente com a secretaria, definir quais trabalhos serão entregues, assim como, efetuar a entrega na biblioteca."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": " @tema:(Procedimento para entrega de Trabalhos Acadêmicos)",
+      "dialog_node": "node_5_1614814431733",
+      "previous_sibling": "node_5_1614813597449"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para saber sobre Referências acesse o link: https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/imagens/biblioteca/ta/referencias_2020.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_13_1614815067049",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@elaboracao:Referências",
+      "dialog_node": "node_5_1614816301597",
+      "previous_sibling": "node_8_1614816187385"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Com qual tema você precisa de ajuda?\n-Bitly\n-Classe LaTeX da FEI\n-Combate ao Plágio\n-Ficha Catalográfica\n-Guia da nova reforma ortográfica\n-Guia para elaboração de trabalhos acadêmicos da FEI\n-Mecanismo Online para Referências\n-Mendeley\n-Orientação para normalização de trabalhos acadêmicos\n-Procedimento para entrega de Trabalhos Acadêmicos"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {
+        "_customization": {
+          "mcr": false
+        }
+      },
+      "conditions": "welcome",
+      "dialog_node": "node_5_1614816981337",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Acesse o link para saber mais sobre o Farejador de Plágio: http://www.plagiarismcombat.com/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_15_1614815327616",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@plagio:(Farejador de Plágio)",
+      "dialog_node": "node_6_1614818856255"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "O Mendeley é considerado uma rede social acadêmica que conecta pesquisadores e permite gerenciar referências, buscar, arquivar e compartilhar documentos. Para acessar o Mendeley: https://www.mendeley.com/reference-management/reference-manager"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@tema:Mendeley",
+      "dialog_node": "node_7_1614814434026",
+      "previous_sibling": "node_1_1614814433176"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Acesse o link para saber mais sobre o Plagium: http://www.plagium.com/"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_15_1614815327616",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@plagio:Plagium",
+      "dialog_node": "node_7_1614818859821",
+      "previous_sibling": "node_6_1614818856255"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Para saber sobre Estrutura acesse o link: https://gerenciador.fei.edu.br/Content/Arquivos/Template/junho2017/Themes/Resources/imagens/biblioteca/ta/estrutura_2020.pdf"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_13_1614815067049",
+      "next_step": {
+        "behavior": "jump_to",
+        "selector": "body",
+        "dialog_node": "node_5_1614816981337"
+      },
+      "conditions": "@elaboracao:Estrutura",
+      "dialog_node": "node_8_1614816187385",
+      "previous_sibling": "node_4_1614816101447"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Obrigado por falar comigo, até a proxima !"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1614816981337",
+      "disabled": true,
+      "conditions": "#fim",
+      "dialog_node": "response_9_1614817874084"
+    },
+    {
+      "type": "slot",
+      "parent": "node_5_1614816981337",
+      "variable": "$fim",
+      "dialog_node": "slot_7_1614817736003",
+      "previous_sibling": "response_9_1614817874084"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "Biblioteca FEI",
+  "language": "pt-br",
+  "description": "Ajudar a bibliboteca da fei"
+}
